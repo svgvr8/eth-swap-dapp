@@ -1,4 +1,4 @@
-# DAOHQ Interview - Solidity 
+# DAOHQ Interview - Solidity <img src="https://www.daohq.xyz/brand/logo.svg">
 
 Try running some of the following tasks:
 
