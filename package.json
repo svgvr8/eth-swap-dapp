@@ -1,0 +1,24 @@
+{
+  "name": "daohq-swap",
+  "version": "1.0.0",
+  "description": "Interview Sagar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svgvr8/daohq-swap.git"
+  },
+  "keywords": [
+    "daohq",
+    "lucas",
+    "emmett"
+  ],
+  "author": "Sagar Y",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svgvr8/daohq-swap/issues"
+  },
+  "homepage": "https://github.com/svgvr8/daohq-swap#readme"
+}
