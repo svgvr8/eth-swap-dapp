@@ -20,19 +20,4 @@ If added, then try to swap it with a native currency or stable coin
 For example, swap $DKD with $ALCX on ETH. For testnet, you can pick any token pair.
 Note that the contract does not have to transfer tokens to the Uniswap Router when calling the function. Instead, the user allows DAOHQ to approve the Router X amount of tokens, so that the tokens are still with user and not with DAOHQ. 
 
-
-npx ganache-cli \
---fork https://mainnet.infura.io/v3/$WEB3_INFURA_PROJECT_ID \
---unlock $DAI_WHALE \
---networkId 999
-
-
-
-npx truffle test --network mainnet_fork test/uniswap.js
-
-http://localhost:8545
-
-npx ganache-cli \
---fork https://ropsten.infura.io/v3/$WEB3_INFURA_PROJECT_ID \
---unlock $DAI_WHALE \
---networkId 3
+Factory Address Ropsten : 0xa436152b5551b901d30847e5ed3159c40dad943b
