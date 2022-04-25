@@ -1,4 +1,4 @@
-# <img src="https://www.daohq.xyz/brand/logo.svg"> DAOHQ - Solidity 
+# DAO Token Swap
 
 Try running some of the following tasks:
 
