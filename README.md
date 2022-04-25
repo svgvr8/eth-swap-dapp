@@ -21,3 +21,5 @@ For example, swap $DKD with $ALCX on ETH. For testnet, you can pick any token pa
 Note that the contract does not have to transfer tokens to the Uniswap Router when calling the function. Instead, the user allows DAOHQ to approve the Router X amount of tokens, so that the tokens are still with user and not with DAOHQ. 
 
 Factory Address Ropsten : 0xa436152b5551b901d30847e5ed3159c40dad943b
+
+Init Hash : 0xe96264fc03ce420ff6a7fbd23be695af2e5d599003e5436691bf45d5a009d1ae
