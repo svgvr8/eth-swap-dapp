@@ -1,0 +1,2 @@
+REACT_APP_NETWORK_URL="https://ropsten.infura.io/v3/9cc446f19bf645399143e6d295ba4e8"
+REACT_APP_CHAIN_ID="3"
