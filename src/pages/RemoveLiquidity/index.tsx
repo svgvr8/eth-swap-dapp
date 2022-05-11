@@ -19,7 +19,7 @@ import Row, { RowBetween, RowFixed } from '../../components/Row';
 
 import Slider from '../../components/Slider';
 import CurrencyLogo from '../../components/CurrencyLogo';
-import { ADDRESS, LP_TOKEN_NAME } from '../../constants';
+import { LP_TOKEN_NAME } from '../../constants';
 import { useActiveWeb3React } from '../../hooks';
 import { useCurrency } from '../../hooks/Tokens';
 import { usePairContract } from '../../hooks/useContract';
@@ -42,6 +42,11 @@ import { Field } from '../../state/burn/actions';
 import { useWalletModalToggle } from '../../state/application/hooks';
 import { useUserSlippageTolerance } from '../../state/user/hooks';
 import { BigNumber } from '@ethersproject/bignumber';
+
+
+// export const ROUTER_ADDRESS = '0x3fee07b8b35980c7073fd06911b89c0666b15dae';
+// ropsten uniswap
+export const ROUTER_ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D';
 
 export default function RemoveLiquidity({
   history,
