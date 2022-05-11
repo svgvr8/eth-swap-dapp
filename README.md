@@ -18,3 +18,6 @@ Note that the contract does not have to transfer tokens to the Uniswap Router wh
 Factory Address Ropsten : 0x2160FeBfCE7241936cEf2E5DaAc35046D91edD98
 
 Init Hash : 0xe96264fc03ce420ff6a7fbd23be695af2e5d599003e5436691bf45d5a009d1ae
+DAO LP = 0xdbeAd30107C6fA2Fc4A611a787430730fcc10D80
+DAO Factory = 0x535a16EFde6f95477d60b8CC327661F392ad387f
+DAO Router = 0x73e6d458b7f1b819b47e3628b71030d9ef20c29e
