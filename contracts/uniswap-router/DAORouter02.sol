@@ -56,10 +56,7 @@ contract DAORouter02 is IUniswapV2Router02 {
                 reserveB
             );
             if (amountBOptimal <= amountBDesired) {
-                require(
-                    amountBOptimal >= amountBMin,
-                    "UniswapV2Router: INSUFFICIENT_B_AMOUNT"
-                );
+                require(amountBOptimal >= amountBMin, "INSUFFICIENT_B_AMOUNT");
                 (amountA, amountB) = (amountADesired, amountBOptimal);
             } else {
                 uint256 amountAOptimal = UniswapV2Library.quote(
@@ -68,10 +65,7 @@ contract DAORouter02 is IUniswapV2Router02 {
                     reserveA
                 );
                 assert(amountAOptimal <= amountADesired);
-                require(
-                    amountAOptimal >= amountAMin,
-                    "UniswapV2Router: INSUFFICIENT_A_AMOUNT"
-                );
+                require(amountAOptimal >= amountAMin, "INSUFFICIENT_A_AMOUNT");
                 (amountA, amountB) = (amountAOptimal, amountBDesired);
             }
         }
@@ -171,14 +165,8 @@ contract DAORouter02 is IUniswapV2Router02 {
         (amountA, amountB) = tokenA == token0
             ? (amount0, amount1)
             : (amount1, amount0);
-        require(
-            amountA >= amountAMin,
-            "UniswapV2Router: INSUFFICIENT_A_AMOUNT"
-        );
-        require(
-            amountB >= amountBMin,
-            "UniswapV2Router: INSUFFICIENT_B_AMOUNT"
-        );
+        require(amountA >= amountAMin, "INSUFFICIENT_A_AMOUNT");
+        require(amountB >= amountBMin, "INSUFFICIENT_B_AMOUNT");
     }
 
     function removeLiquidityETH(
@@ -380,7 +368,7 @@ contract DAORouter02 is IUniswapV2Router02 {
         amounts = UniswapV2Library.getAmountsOut(factory, amountIn, path);
         require(
             amounts[amounts.length - 1] >= amountOutMin,
-            "UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT"
+            "INSUFFICIENT_OUTPUT_AMOUNT"
         );
         TransferHelper.safeTransferFrom(
             path[0],
@@ -405,10 +393,7 @@ contract DAORouter02 is IUniswapV2Router02 {
         returns (uint256[] memory amounts)
     {
         amounts = UniswapV2Library.getAmountsIn(factory, amountOut, path);
-        require(
-            amounts[0] <= amountInMax,
-            "UniswapV2Router: EXCESSIVE_INPUT_AMOUNT"
-        );
+        require(amounts[0] <= amountInMax, "EXCESSIVE_INPUT_AMOUNT");
         TransferHelper.safeTransferFrom(
             path[0],
             msg.sender,
@@ -431,11 +416,11 @@ contract DAORouter02 is IUniswapV2Router02 {
         ensure(deadline)
         returns (uint256[] memory amounts)
     {
-        require(path[0] == WETH, "UniswapV2Router: INVALID_PATH");
+        require(path[0] == WETH, "INVALID_PATH");
         amounts = UniswapV2Library.getAmountsOut(factory, msg.value, path);
         require(
             amounts[amounts.length - 1] >= amountOutMin,
-            "UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT"
+            "INSUFFICIENT_OUTPUT_AMOUNT"
         );
         IWETH(WETH).deposit{value: amounts[0]}();
         assert(
@@ -460,12 +445,9 @@ contract DAORouter02 is IUniswapV2Router02 {
         ensure(deadline)
         returns (uint256[] memory amounts)
     {
-        require(path[path.length - 1] == WETH, "UniswapV2Router: INVALID_PATH");
+        require(path[path.length - 1] == WETH, "INVALID_PATH");
         amounts = UniswapV2Library.getAmountsIn(factory, amountOut, path);
-        require(
-            amounts[0] <= amountInMax,
-            "UniswapV2Router: EXCESSIVE_INPUT_AMOUNT"
-        );
+        require(amounts[0] <= amountInMax, "EXCESSIVE_INPUT_AMOUNT");
         TransferHelper.safeTransferFrom(
             path[0],
             msg.sender,
@@ -490,11 +472,11 @@ contract DAORouter02 is IUniswapV2Router02 {
         ensure(deadline)
         returns (uint256[] memory amounts)
     {
-        require(path[path.length - 1] == WETH, "UniswapV2Router: INVALID_PATH");
+        require(path[path.length - 1] == WETH, "INVALID_PATH");
         amounts = UniswapV2Library.getAmountsOut(factory, amountIn, path);
         require(
             amounts[amounts.length - 1] >= amountOutMin,
-            "UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT"
+            "INSUFFICIENT_OUTPUT_AMOUNT"
         );
         TransferHelper.safeTransferFrom(
             path[0],
@@ -520,12 +502,9 @@ contract DAORouter02 is IUniswapV2Router02 {
         ensure(deadline)
         returns (uint256[] memory amounts)
     {
-        require(path[0] == WETH, "UniswapV2Router: INVALID_PATH");
+        require(path[0] == WETH, "INVALID_PATH");
         amounts = UniswapV2Library.getAmountsIn(factory, amountOut, path);
-        require(
-            amounts[0] <= msg.value,
-            "UniswapV2Router: EXCESSIVE_INPUT_AMOUNT"
-        );
+        require(amounts[0] <= msg.value, "EXCESSIVE_INPUT_AMOUNT");
         IWETH(WETH).deposit{value: amounts[0]}();
         assert(
             IWETH(WETH).transfer(
@@ -596,7 +575,7 @@ contract DAORouter02 is IUniswapV2Router02 {
         require(
             IERC20(path[path.length - 1]).balanceOf(to).sub(balanceBefore) >=
                 amountOutMin,
-            "UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT"
+            "INSUFFICIENT_OUTPUT_AMOUNT"
         );
     }
 
@@ -606,7 +585,7 @@ contract DAORouter02 is IUniswapV2Router02 {
         address to,
         uint256 deadline
     ) external payable virtual override ensure(deadline) {
-        require(path[0] == WETH, "UniswapV2Router: INVALID_PATH");
+        require(path[0] == WETH, "INVALID_PATH");
         uint256 amountIn = msg.value;
         IWETH(WETH).deposit{value: amountIn}();
         assert(
@@ -620,7 +599,7 @@ contract DAORouter02 is IUniswapV2Router02 {
         require(
             IERC20(path[path.length - 1]).balanceOf(to).sub(balanceBefore) >=
                 amountOutMin,
-            "UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT"
+            "INSUFFICIENT_OUTPUT_AMOUNT"
         );
     }
 
@@ -631,7 +610,7 @@ contract DAORouter02 is IUniswapV2Router02 {
         address to,
         uint256 deadline
     ) external virtual override ensure(deadline) {
-        require(path[path.length - 1] == WETH, "UniswapV2Router: INVALID_PATH");
+        require(path[path.length - 1] == WETH, "INVALID_PATH");
         TransferHelper.safeTransferFrom(
             path[0],
             msg.sender,
@@ -640,10 +619,7 @@ contract DAORouter02 is IUniswapV2Router02 {
         );
         _swapSupportingFeeOnTransferTokens(path, address(this));
         uint256 amountOut = IERC20(WETH).balanceOf(address(this));
-        require(
-            amountOut >= amountOutMin,
-            "UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT"
-        );
+        require(amountOut >= amountOutMin, "INSUFFICIENT_OUTPUT_AMOUNT");
         IWETH(WETH).withdraw(amountOut);
         TransferHelper.safeTransferETH(to, amountOut);
     }
